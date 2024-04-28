@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="province">Province:</label>
+    <select id="province" name="province">
+        <option value="Select" selected hidden>Select</option>
+        <option value="Bangkok">Bangkok</option>
+        <option value="Nonthaburi">Nonthaburi</option>
+    </select>
+    <br><br>
+    
+    <label for="district">District:</label>
+    <select id="district" name="district">
+        <option value="Select" selected hidden>Select</option>
+    </select>
+
+    <script>
+        const districtData = {
+            Bangkok: [1, 2, 3, 4, 5],
+            Nonthaburi: [6, 7, 8, 9, 10]
+        };
+
+        const provinceSelect = document.getElementById("province");
+        const districtSelect = document.getElementById("district");
+
+        const populateDistricts = () => {
+            const selectedProvince = provinceSelect.value;
+            districtSelect.innerHTML = '<option value="Select" selected hidden>Select</option>';
+
+            if (selectedProvince !== 'Select') {
+                const districts = districtData[selectedProvince];
+                districts.forEach(district => {
+                    const option = document.createElement("option");
+                    option.textContent = district;
+                    option.value = district;
+                    districtSelect.appendChild(option);
+                });
+            }
+        };
+
+        provinceSelect.addEventListener("change", populateDistricts);
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="pnumber" id="pnumber">
+    <button>Check</button>
+
+    <script>
+        const input = document.getElementById('pnumber');
+        const button = document.querySelector('button');
+
+        button.addEventListener('click',() => {
+            if(!input.value.trim() || isNaN(input.value)) {
+                alert('Phone Number is required');
+            }
+            else if(input.value.length !== 10) {
+                alert('Invalid length');
+            }
+            else{
+                alert('Your number is valid')
+            }
+        })
+    </script>
+</body>
+</html>

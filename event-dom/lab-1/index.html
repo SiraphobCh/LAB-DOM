@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>Press this</button>
+
+    <script>
+        const button = document.querySelector('button')
+
+        button.addEventListener('click', () => alert('1'));  // (1)
+        button.removeEventListener('click', () => alert('1')); // (2)
+        button.onclick = () => alert(2); // (3)
+
+        //ทำงานได้ทุกอัน (1) alert 1 (2) remove(1) (3) alert 2
+    </script>
+</body>
+</html>
